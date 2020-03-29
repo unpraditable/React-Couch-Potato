@@ -1,3 +1,5 @@
+//this component is to render the homepage of this application
+
 import React, {Component} from 'react'; 
 import MovieCard from '../components/MovieCard';
 class Home extends Component {
