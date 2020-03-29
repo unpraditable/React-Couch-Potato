@@ -5,7 +5,12 @@ class Home extends Component {
         return (
         <div className="container content no-pad">
             <h1>Hello World!</h1>
-            <MovieCard />
+
+            <h2>Top Movies</h2>
+            <MovieCard type="top_rated" count="5"/>
+
+            <h2>Popular Movies</h2>
+            <MovieCard type="popular" count="5"/>
         </div>
 
         )
