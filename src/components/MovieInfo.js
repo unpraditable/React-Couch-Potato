@@ -18,8 +18,6 @@ class MovieInfo extends Component {
             .then(res => {
                 const infos = res.data;
                 this.setState({ movieInfos: infos  });
-
-                console.log(this.state.movieInfos)
             })
         
     }
