@@ -5,11 +5,13 @@ import MovieInfo from '../components/MovieInfo';
 import MovieCasts from '../components/MovieCasts';
 
 class MovieDetail extends Component {
+
     render() {
+        const { movieSlug } = this.props.match.params
         return (
         <div className="container content no-pad">
-            <MovieInfo movie_id ="372058"/>
-            <MovieCasts movie_id="372058" />
+            <MovieInfo movie_id ={`${movieSlug}`}/>
+            <MovieCasts movie_id ={`${movieSlug}`}/>
         </div>
 
         )

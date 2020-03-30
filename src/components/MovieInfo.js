@@ -12,7 +12,7 @@ class MovieInfo extends Component {
     componentDidMount() {
         const movie_id = this.props.movie_id;
         const api_key= "f4405389d2c4c04e87e2a7b8edff703b";
-
+        
         //get the movie info via AJAX with axios
         axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}&language=en-US`)
             .then(res => {
@@ -29,7 +29,7 @@ class MovieInfo extends Component {
         <div>
             <h1>{this.state.movieInfos.original_title}</h1>
 
-            <div class="backdrop">
+            <div className="backdrop">
                 <img src={`https://image.tmdb.org/t/p/original${this.state.movieInfos.backdrop_path}`} className="img-fluid" />
             </div>
 

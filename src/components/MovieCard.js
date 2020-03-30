@@ -3,6 +3,10 @@
 import React, {Component} from 'react'; 
 import axios from 'axios';
 
+import {
+    Link
+  } from "react-router-dom";
+
 class MovieCard extends Component {
     state = {
         movies: []
@@ -35,20 +39,19 @@ class MovieCard extends Component {
         }
     
     }
-
     
     render() {
         return (
             <ul className="row list-unstyled">
                 {this.state.movies.map(movie => 
                     <li className="movie-card col-sm-6 col-md-3 col-lg-2">
-                        <a href="#">
+                        <Link to={ `/movies/${movie.id}` } title={movie.title}>
                             <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
                             <div class="movie-card--title">
                                 <p class="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
                                 <p>{movie.title}</p>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                 )}
             </ul>

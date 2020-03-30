@@ -3,6 +3,10 @@
 import React, {Component} from 'react'; 
 import axios from 'axios';
 
+import {
+    Link
+  } from "react-router-dom";
+
 class MovieCasts extends Component {
     state = {
         movieCasts: []
@@ -27,12 +31,12 @@ class MovieCasts extends Component {
             <ul className="row list-unstyled">
                 {this.state.movieCasts.map(cast => 
                     <li className="movie-card col-sm-6 col-sm-3 col-md-2">
-                        <a href={`${cast.id}`}>
+                        <Link to={ `/casts/${cast.id}` } title={cast.name}>
                             <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
                             <div class="movie-card--title">
                                 <p>{cast.name} as {cast.character}</p>
                             </div>
-                        </a>
+                        </Link>
                     </li>
                 )}
             </ul>
