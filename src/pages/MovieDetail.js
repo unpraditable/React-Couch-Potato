@@ -8,8 +8,8 @@ class MovieDetail extends Component {
     render() {
         return (
         <div className="container content no-pad">
-            <MovieInfo movie_id="378064"/>
-            <MovieCasts movie_id="378064" />
+            <MovieInfo movie_id ="372058"/>
+            <MovieCasts movie_id="372058" />
         </div>
 
         )

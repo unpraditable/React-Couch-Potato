@@ -27,7 +27,7 @@ class MovieCasts extends Component {
             <ul className="row list-unstyled">
                 {this.state.movieCasts.map(cast => 
                     <li className="movie-card col-sm-6 col-sm-3 col-md-2">
-                        <a href="#">
+                        <a href={`${cast.id}`}>
                             <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
                             <div class="movie-card--title">
                                 <p>{cast.name} as {cast.character}</p>
