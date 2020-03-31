@@ -13,15 +13,20 @@ class MovieCard extends Component {
     }
 
     componentDidMount() {
+        const queryString = require('query-string');
+        const parsedQueryString = queryString.parse(window.location.search);
+        console.log(parsedQueryString);
+        const searchName = parsedQueryString.name;
+        const page = "1";
         const type = this.props.type; //the type whether this is a top_rated movies or popular movies
         const actor_id = this.props.actor_id;
-        const api_key= "f4405389d2c4c04e87e2a7b8edff703b"
+        const api_key= "f4405389d2c4c04e87e2a7b8edff703b";
 
         //get the movie via AJAX with axios
 
         //if this component will be rendered to the home or browse page, execute this code
         if(!actor_id) {
-            axios.get(`https://api.themoviedb.org/3/movie/${type}?api_key=${api_key}&language=en-US&page=1`)
+            axios.get(`https://api.themoviedb.org/3/movie/${type}?api_key=${api_key}&language=en-US&page=${page}`)
             .then(res => {
                 const movies = res.data.results;
                 this.setState({ movies });
@@ -30,10 +35,17 @@ class MovieCard extends Component {
         
 
         //if this component will be rendered to the actor page, execute this code
-        if(actor_id) {
-            axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=${api_key}&language=en-US`)
+        axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=${api_key}&&query=your&language=en-US`)
+        .then(res => {
+            const movies = res.data.results;
+            this.setState({ movies });
+        })
+
+        //if this component will be rendered to the search result page, execute this code
+        if(this.props.type === "search") {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchName}&language=en-US&page=${page}&include_adult=false`)
             .then(res => {
-                const movies = res.data.cast;
+                const movies = res.data.results;
                 this.setState({ movies });
             })
         }

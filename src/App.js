@@ -11,6 +11,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useLocation
 } from "react-router-dom";
 
 function App() {
@@ -33,6 +34,11 @@ function App() {
           <Route exact path="/trending">
             <div className="container">
               <MovieCard type="popular"/>
+            </div>
+          </Route>
+          <Route exact path="/search">
+            <div className="container">
+              <MovieCard type="search" />
             </div>
           </Route>
 
