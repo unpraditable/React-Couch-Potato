@@ -112,14 +112,14 @@ class MovieCard extends Component {
         }
 
         return (
-            <div class="col-12">
+            <div class="row">
 
                 {/* The Movies sub component */}
-                <ul className="row list-unstyled">
+                <ul className="movie-card-container list-unstyled col-12">
                     {this.state.movies.map(movie => 
-                        <li className="movie-card col-sm-6 col-md-3 col-lg-2">
+                        <li className="movie-card">
                             <Link to={ `/movies/${movie.id}` } title={movie.title}>
-                                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
+                                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
                                 <div class="movie-card--title">
                                     <p class="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
                                     <p>{movie.title}</p>
