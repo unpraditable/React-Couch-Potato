@@ -5,7 +5,7 @@ import Home from './pages/Home.js';
 import Header from './components/Header.js';
 import MovieDetail from './pages/MovieDetail';
 import ActorDetail from './pages/ActorDetail';
-import MovieCard from './components/MovieCard';
+import BrowseMovie from './pages/BrowseMovie';
 
 import {
   BrowserRouter as Router,
@@ -26,20 +26,14 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/popular">
-            <div className="container">
-              <MovieCard type="top_rated"/>
-            </div>
+          <Route exact path="/top_rated">
+            <BrowseMovie type="top_rated" />
           </Route>
-          <Route exact path="/trending">
-            <div className="container">
-              <MovieCard type="popular"/>
-            </div>
+          <Route exact path="/popular">
+            <BrowseMovie type="popular" />
           </Route>
           <Route exact path="/search">
-            <div className="container">
-              <MovieCard type="search" />
-            </div>
+            <BrowseMovie type="search" />
           </Route>
 
           {/* I use switch for nested routes, so those components will be rendered inclusively and it will be helpful for nested URLs */}
