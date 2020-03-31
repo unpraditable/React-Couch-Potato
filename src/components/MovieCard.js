@@ -119,8 +119,10 @@ class MovieCard extends Component {
                     {this.state.movies.map(movie => 
                         <li className="movie-card">
                             <Link to={ `/movies/${movie.id}` } title={movie.title}>
-                                <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
-                                <div class="movie-card--title">
+                                <div className="image-container">
+                                    <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
+                                </div>
+                                <div className="movie-card--title">
                                     <p class="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
                                     <p>{movie.title}</p>
                                 </div>

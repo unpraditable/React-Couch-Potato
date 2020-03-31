@@ -28,18 +28,24 @@ class MovieCasts extends Component {
 
     render() {
         return (
-            <ul className="row list-unstyled">
-                {this.state.movieCasts.map(cast => 
-                    <li className="movie-card col-sm-6 col-sm-3 col-md-2">
-                        <Link to={ `/casts/${cast.id}` } title={cast.name}>
-                            <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
-                            <div class="movie-card--title">
-                                <p>{cast.name} as {cast.character}</p>
-                            </div>
-                        </Link>
-                    </li>
-                )}
-            </ul>
+            <div className="row">
+                <ul className="cast-card-container list-unstyled col-12">
+                    {this.state.movieCasts.map(cast => 
+                        <li className="cast-card">
+                            <Link to={ `/casts/${cast.id}` } title={cast.name}>
+                                <div className="image-container">
+                                    <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt={`${cast.name} Picture`} />
+
+                                </div>
+                                <div class="cast-card--title">
+                                    <p>{cast.name} as {cast.character}</p>
+                                </div>
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
+            
                 
         )
     }
