@@ -13,8 +13,8 @@ class Header extends Component {
             <div className="container flex">
                 <Link className="brand-name" to="/">CouchPotato</Link>
                 <nav>
-                    <Link to="/top_rated">Top Rated</Link>
-                    <Link to="/popular">Popular</Link>
+                    <a href="/top_rated">Top Rated</a>
+                    <a href="/popular">Popular</a>
                     <input type="text" placeholder="Search.."></input>
                 </nav>
             </div>

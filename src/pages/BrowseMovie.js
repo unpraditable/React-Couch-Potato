@@ -2,14 +2,14 @@
 
 import React, {Component} from 'react'; 
 import MovieCard from '../components/MovieCard';
-
 class ActorDetail extends Component {
     render() {
 
         return (
             <div className="container">
-                <MovieCard type={this.props.type} />
+                <MovieCard type={this.props.type} isBrowsePage="true" />    
             </div>
+            
         )
     }
 }
