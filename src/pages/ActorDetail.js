@@ -9,15 +9,18 @@ class ActorDetail extends Component {
         const { castSlug } = this.props.match.params
 
         return (
-            <div className="container content no-pad">
-                <div className="section">
-                    <ActorInfo actor_id={`${castSlug}`} />
-                </div>
-                <div className="section">
-                    <h2>Movieography</h2>
-                    <MovieCard count="5" actor_id={`${castSlug}`}/>
+            <div className="actor-detail">
+                <div className="container content no-pad">
+                    <div>
+                        <ActorInfo actor_id={`${castSlug}`} />
+                    </div>
+                    <div>
+                        <h3>Movieography</h3>
+                        <MovieCard count="5" actor_id={`${castSlug}`}/>
+                    </div>
                 </div>
             </div>
+            
         )
     }
 }

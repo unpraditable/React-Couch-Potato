@@ -51,15 +51,16 @@ class MovieInfo extends Component {
                         {/* Render the poster which hidden itself at mobile device when it has video for aesthetic purpose */}
                         {this.state.movieVideoKey &&
                         <div className="col-sm-3">
-                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" />
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" alt={this.state.movieInfos.title} />
                         </div>
                         }
 
                         {/* Render the poster for all devices it does not have a video for aesthetic purpose */}
                         {!this.state.movieVideoKey &&
                         <div className="col-sm-3">
-                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.backdrop_path}`} className="img-fluid mb-2 d-block d-sm-none backdrop" alt={this.state.movieInfos.name}/>
-                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" />
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.backdrop_path}`} className="img-fluid mb-2 d-block d-sm-none backdrop" alt={this.state.movieInfos.title}/>
+                            
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" alt={this.state.movieInfos.title}  />
                         </div>
 
                         }

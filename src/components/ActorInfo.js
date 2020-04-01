@@ -34,7 +34,13 @@ class ActorInfo extends Component {
 
             <section className="row">
                 <div className="col-sm-3">
-                    <img src={`https://image.tmdb.org/t/p/w300${this.state.actorInfos.profile_path}`} className="img-fluid" />
+                    {this.state.actorInfos.profile_path &&
+                        <img src={`https://image.tmdb.org/t/p/w300${this.state.actorInfos.profile_path}`} className="img-fluid" alt={this.state.actorInfos.name} />
+                    }
+
+                    {!this.state.actorInfos.profile_path &&
+                        <img src="/icons/backstage.svg" className="img-fluid" alt={this.state.actorInfos.name} />
+                    }
 
                 </div>
                 <div className="col-sm-9">
