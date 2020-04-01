@@ -44,7 +44,7 @@ class MovieCasts extends Component {
                 <ul className="cast-card-container list-unstyled col-12">
                     {this.state.movieCasts.map(cast => 
                         <li className="cast-card">
-                            <Link to={ `/casts/${cast.id}` } title={cast.name}>
+                            <Link to={ `/people/${cast.id}` } title={cast.name}>
                                 <div className="image-container">
                                     {/* Render the image from API if there is a profile_path */}
                                     {cast.profile_path &&

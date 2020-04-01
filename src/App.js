@@ -40,7 +40,7 @@ function App() {
           <Switch>
             <Route path="/movies/:movieSlug" component= {MovieDetail}>
             </Route>
-            <Route path="/casts/:castSlug" component={ActorDetail}>
+            <Route path="/people/:castSlug" component={ActorDetail}>
             </Route>
           </Switch>
         </div>
