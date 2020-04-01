@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react'; 
 import axios from 'axios';
-import Pagination from 'react-bootstrap/Pagination';
+import MoviePagination from './MoviePagination.js';
 
 import {
     Link
@@ -57,11 +57,13 @@ class MovieCard extends Component {
         }
 
         //if this component will be rendered to the actor page, execute this code
-        axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=${api_key}&&query=your&language=en-US`)
-        .then(res => {
-            const movies = res.data.cast;
-            this.setState({ movies });
-        })
+        if(actor_id) {
+            axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=${api_key}&&query=your&language=en-US`)
+            .then(res => {
+                const movies = res.data.cast;
+                this.setState({ movies });
+            })
+        }
 
         //if this component will be rendered to the search result page, execute this code
         if(this.props.type === "search") {
@@ -76,8 +78,6 @@ class MovieCard extends Component {
                 });
             })
         }
-
-        
     }
     
     render() {
@@ -89,38 +89,6 @@ class MovieCard extends Component {
             movieList = this.state.movies.slice(0, parseInt(this.props.count))
         } else {
             movieList = this.state.movies
-
-        }
-
-        //this is an algorithm to append the pagination
-        var active = parseInt(this.state.activePage); //active is the active page of the pagination
-        var last = parseInt(this.state.totalPages);
-        var delta = 3; //delta is the range between active pagination with the first pagination and last pagination
-        var left = active - delta; // left is the index of items which on the left side of active
-        var right = active + delta + 1; //right is the index of 3 items which on the right side of active
-        var items = []; //items is the pagination items that will be rendered
-
-        if(last > 1) {
-            for (let i = 1; i <= last; i++) {
-                //append the pagination item at first, last, active page, 3 on the left of active and 3 on the right of active
-                if (i === 1 || i === last || i >= left && i < right) {
-                    if(this.state.searchTitle) {
-                        items.push(
-                            <Pagination.Item key={i} active={i === active} href={`?title=${this.state.searchTitle}&page=${i}`}>{i}</Pagination.Item> 
-                        );
-                    } else {
-                        items.push(
-                            <Pagination.Item key={i} active={i === active} href={`?page=${i}`}>{i}</Pagination.Item> 
-                        );
-                    }
-                    
-                }
-                //append the ellipsis pagination on the second item and second last item if active < left or active >= left
-                if(i === 2 && i < left|| i === last - 1 && i >= right) {
-                    items.push(<Pagination.Ellipsis />)
-    
-                }
-            }
         }
 
         return (
@@ -135,7 +103,7 @@ class MovieCard extends Component {
                                     <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
                                 </div>
                                 <div className="movie-card--title">
-                                    <p class="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
+                                    <p className="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
                                     <p>{movie.title}</p>
                                 </div>
                             </Link>
@@ -145,7 +113,7 @@ class MovieCard extends Component {
 
                 {/* The pagination component, will be rendered if this component will be rendered to the browse page */}
                 {this.props.isBrowsePage &&
-                    <Pagination>{items}</Pagination>
+                    <MoviePagination activePage={this.state.activePage} searchTitle={this.state.searchTitle} totalPages={this.state.totalPages}></MoviePagination>
                 }
                 
             </div>
