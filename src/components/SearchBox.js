@@ -16,14 +16,14 @@ class SearchBox extends Component {
       
         return (
             <Form inline onSubmit={search.bind(this)}>
-                <InputGroup  className="" >
+                <InputGroup  className="search-input" >
                     <FormControl
                     placeholder="Search Movies..."
                     aria-label="Search Movies..."
                     aria-describedby="basic-addon2" id="searchForm" required
                     />
                     <InputGroup.Append>
-                    <Button type="submit" variant="outline-secondary">Button</Button>
+                    <Button type="submit" variant="outline-secondary"><img className="search-icon" src="/icons/search.svg" alt="search-icon"/></Button>
                     </InputGroup.Append>
                 </InputGroup>
             </Form>

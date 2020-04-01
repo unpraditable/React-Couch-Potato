@@ -2,19 +2,12 @@ $background: #282c34;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background;
   color: white;
 
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 h1 {
@@ -32,21 +25,24 @@ h2 {
   margin: 20px 0;
 }
 
+.relative {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  padding: 15px 0;
+}
+
 .App-body {
   padding-top: 75px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+//header component
 header {
   position: fixed;
   z-index: 999;
@@ -84,7 +80,10 @@ header {
         &:hover {
           text-decoration: none;
         }
+      }
 
+      .active{
+        font-weight: bold;
       }
     }
 
@@ -107,25 +106,9 @@ header {
   }
 }
 
-.relative {
-  position: relative;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.section {
-  padding: 15px 0;
-}
-
+//for slider component
 .carousel-img-container {
-  height: 50vh;
+  height: 60vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
 
@@ -149,6 +132,7 @@ header {
   }
 }
 
+//for caption inside of slider
 .carousel-caption {
   text-align: left;
   left: 0;
@@ -164,8 +148,7 @@ header {
   }
 }
 
-
-
+//fr the container of movie and cast card
 .movie-card-container,
 .cast-card-container {
   display: grid;
@@ -186,6 +169,7 @@ header {
   }
 }
 
+//for movie and cast card component
 .movie-card,
 .cast-card {
   text-align: center;
@@ -246,16 +230,7 @@ header {
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+//for pagination component
 .pagination{
   display: inline-block;
   margin-left: auto;
@@ -288,5 +263,66 @@ header {
     &:nth-child(2n+1) {
       background: #1e2129;
     }
+  }
+}
+
+//for movie info component
+.movie-info{
+  .trailer-video{
+    height: 70vh;
+  }
+  .backdrop{
+    img{
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+    }
+  }
+  h1{
+    text-align: left;
+    margin: 0;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  }
+  h2{
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+
+  .runtime, .release_date{
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+    p{
+      margin-bottom: 0;
+    }
+  }
+
+  .icon{
+    margin-right: 5px;
+    display: flex;
+    img{
+      height: 16px;
+    }
+  }
+}
+
+//for movie detail component
+.movie-detail{
+  h2{
+    font-size: 1.5em;
+    margin:15px 0;
+  }
+}
+
+//for search component
+.search-input{
+  .btn{
+    display: flex;
+    &:hover{
+      background-color: darken(#326ec8, 10%);
+    }
+  }
+  .search-icon{
+    width: 15px;
   }
 }

@@ -9,9 +9,12 @@ class MovieDetail extends Component {
     render() {
         const { movieSlug } = this.props.match.params
         return (
-        <div className="container content no-pad">
+        <div className="movie-detail">
             <MovieInfo movie_id ={`${movieSlug}`}/>
-            <MovieCasts movie_id ={`${movieSlug}`}/>
+            <div className="container">
+                <h2>Cast List</h2>
+                <MovieCasts movie_id ={`${movieSlug}`}/>
+            </div>
         </div>
 
         )
