@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react'; 
 import axios from 'axios';
+import {Helmet} from "react-helmet";
 
 class MovieInfo extends Component {
     state = {
@@ -40,6 +41,11 @@ class MovieInfo extends Component {
         let releaseDate = (new Date(this.state.movieInfos.release_date)).toLocaleDateString();
         return (
         <div className="movie-info">
+            {/* For the title */}
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{ `Couch Potato - ${ this.state.movieInfos.title }` }</title>
+            </Helmet>
             <div className="container">
                 {/* render the YouTube video */}
                 {this.state.movieVideoKey &&
@@ -59,7 +65,7 @@ class MovieInfo extends Component {
                         {!this.state.movieVideoKey &&
                         <div className="col-sm-3">
                             <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.backdrop_path}`} className="img-fluid mb-2 d-block d-sm-none backdrop" alt={this.state.movieInfos.title}/>
-                            
+
                             <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" alt={this.state.movieInfos.title}  />
                         </div>
 

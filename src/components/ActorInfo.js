@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react'; 
 import axios from 'axios';
+import {Helmet} from "react-helmet";
 
 class ActorInfo extends Component {
     state = {
@@ -17,8 +18,6 @@ class ActorInfo extends Component {
             .then(res => {
                 const infos = res.data;
                 this.setState({ actorInfos: infos  });
-
-                console.log(this.state.actorInfos)
             })
         
     }
@@ -30,6 +29,11 @@ class ActorInfo extends Component {
 
         return (
         <div>
+            {/* Show The Title of The Page */}
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{ `Couch Potato - ${ this.state.actorInfos.name }` }</title>
+            </Helmet>
             <h1>{this.state.actorInfos.name}</h1>
 
             <section className="row">

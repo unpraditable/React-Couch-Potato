@@ -11,10 +11,6 @@ class MovieDetail extends Component {
         const { movieSlug } = this.props.match.params
         return (
         <div className="movie-detail">
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>CouchPotato - Movie Detail</title>
-            </Helmet>
             <MovieInfo movie_id ={`${movieSlug}`}/>
             <div className="container">
                 <h2>Cast List</h2>
