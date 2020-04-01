@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/React-Couch-Potato/static/css/main.3f05d47d.chunk.css",
+    "main.js": "/React-Couch-Potato/static/js/main.4f2b7132.chunk.js",
+    "main.js.map": "/React-Couch-Potato/static/js/main.4f2b7132.chunk.js.map",
+    "runtime-main.js": "/React-Couch-Potato/static/js/runtime-main.00f77723.js",
+    "runtime-main.js.map": "/React-Couch-Potato/static/js/runtime-main.00f77723.js.map",
+    "static/css/2.de424728.chunk.css": "/React-Couch-Potato/static/css/2.de424728.chunk.css",
+    "static/js/2.407a1470.chunk.js": "/React-Couch-Potato/static/js/2.407a1470.chunk.js",
+    "static/js/2.407a1470.chunk.js.map": "/React-Couch-Potato/static/js/2.407a1470.chunk.js.map",
+    "index.html": "/React-Couch-Potato/index.html",
+    "precache-manifest.2a6b6a70f167a666458f03a4e665c9f3.js": "/React-Couch-Potato/precache-manifest.2a6b6a70f167a666458f03a4e665c9f3.js",
+    "service-worker.js": "/React-Couch-Potato/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/React-Couch-Potato/static/css/2.de424728.chunk.css.map",
+    "static/css/main.3f05d47d.chunk.css.map": "/React-Couch-Potato/static/css/main.3f05d47d.chunk.css.map",
+    "static/js/2.407a1470.chunk.js.LICENSE.txt": "/React-Couch-Potato/static/js/2.407a1470.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/React-Couch-Potato/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.00f77723.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.407a1470.chunk.js",
+    "static/css/main.3f05d47d.chunk.css",
+    "static/js/main.4f2b7132.chunk.js"
+  ]
+}
