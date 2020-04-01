@@ -45,7 +45,31 @@ class MoviePagination extends Component {
         }
 
         return (
-            <Pagination>{items}</Pagination>
+            <Pagination>
+
+                {/* If it is not search page, render this */}
+                {!this.props.searchTitle &&
+                    <Pagination.First href="?page=1" />
+                }
+
+                {/* If it is search page, render this */}
+                {this.props.searchTitle &&
+                    <Pagination.First href={`?title=${this.props.searchTitle}&page=1`} />
+                }
+
+                {/* Render pagination items */}
+                {items}
+                
+                {/* If it is not search page, render this */}
+                {!this.props.searchTitle &&
+                    <Pagination.Last href={`?page=${last}`} />
+                }
+
+                {/* If it is search page, render this */}
+                {this.props.searchTitle &&
+                    <Pagination.Last href={`?title=${this.props.searchTitle}&page=${last}`} />
+                }
+            </Pagination>
         )
     }
 }

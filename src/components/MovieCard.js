@@ -94,6 +94,11 @@ class MovieCard extends Component {
         return (
             <div className="row">
 
+                {/* The pagination component, will be rendered if this component will be rendered to the browse page */}
+                {this.props.isBrowsePage &&
+                    <MoviePagination activePage={this.state.activePage} searchTitle={this.state.searchTitle} totalPages={this.state.totalPages}></MoviePagination>
+                }
+
                 {/* The Movies sub component */}
                 <ul className="movie-card-container list-unstyled col-12">
                     {movieList.map(movie => 

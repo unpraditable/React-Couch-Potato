@@ -53,15 +53,18 @@ header {
   width: 100%;
   background-color: lighten($background, 10%);
   padding: 10px 0;
+
   .navbar-dark .navbar-toggler {
-    color: rgba(255,255,255,0.5);
-    border-color: rgba(255,255,255,0.5);
-}
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
   .navbar {
     padding: 0 0;
     color: white;
 
-    a, a.nav-link {
+    a,
+    a.nav-link {
       color: white !important;
       margin-right: 40px;
 
@@ -85,8 +88,8 @@ header {
       }
     }
 
-    .btn{
-      background-color: rgb(50,110, 200);
+    .btn {
+      background-color: rgb(50, 110, 200);
       color: white;
       border: none;
     }
@@ -240,5 +243,33 @@ header {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+.pagination{
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #15181d;
+  background: #15181d;
+  .page-item{
+    margin: 2px;
+    border-radius: 0.25rem;
+
+    .page-link{
+      border-radius: 0.25rem;
+
+      padding: 5px 15px;
+      border: 0;
+      background-color: transparent;
+      color: white;
+    }
+    &.active, &:hover{
+      .page-link{
+        background-color: #00acc1;
+      }
+    }
+    &:nth-child(2n+1) {
+      background: #1e2129;
+    }
   }
 }
