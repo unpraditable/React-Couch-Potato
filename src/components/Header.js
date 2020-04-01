@@ -1,24 +1,16 @@
-//this component is to render the header navigation of this application
+//this component is to render the header navigation of this application. Contains Search Box, Link to Popular and Top Rated Movies, and Responsive Hamburger Button which is generated with React Bootstrap
 
 import React, {Component} from 'react'; 
 import {
     withRouter,
     Link
 } from "react-router-dom";
+import SearchBox from './SearchBox.js';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
-import InputGroup from 'react-bootstrap/InputGroup'
 class Header extends Component {
 
     render() {
-        var search = function (e) {
-            let searchQuery = document.getElementById('searchForm').value;
-            e.preventDefault();
-            window.location.href=`/search?title=${searchQuery}`;
-        }
       
         return (
         <header>
@@ -37,18 +29,7 @@ class Header extends Component {
                             <Nav.Link href="/top_rated">Top Rated</Nav.Link>
                             <Nav.Link href="/popular">Popular</Nav.Link>
                         </Nav>
-                        <Form inline onSubmit={search.bind(this)}>
-                            <InputGroup  className="" >
-                                <FormControl
-                                placeholder="Search Movies..."
-                                aria-label="Search Movies..."
-                                aria-describedby="basic-addon2" id="searchForm"
-                                />
-                                <InputGroup.Append>
-                                <Button type="submit" variant="outline-secondary">Button</Button>
-                                </InputGroup.Append>
-                            </InputGroup>
-                        </Form>
+                        <SearchBox />
                     </Navbar.Collapse>
                 </Navbar>
             </div>
@@ -58,4 +39,4 @@ class Header extends Component {
     }
 }
 
-export default withRouter(Header);
+export default Header;
