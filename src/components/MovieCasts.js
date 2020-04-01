@@ -17,13 +17,26 @@ class MovieCasts extends Component {
     const api_key= "f4405389d2c4c04e87e2a7b8edff703b"
 
     //get the movie casts via AJAX with axios
-    axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${api_key}
-    `)
-        .then(res => {
-            const casts = res.data.cast;
-            this.setState({ movieCasts: casts  });
-        })
-    }
+    if(movie_id) {
+        axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${api_key}
+        `)
+            .then(res => {
+                const casts = res.data.cast;
+                this.setState({ movieCasts: casts  });
+            })
+        } else {
+            axios.get(`https://api.themoviedb.org/3/person/popular?api_key=${api_key}
+            `)
+                .then(res => {
+                    let casts = res.data.results;
+                    if(this.props.count) {
+                        casts = casts.slice(0,parseInt(this.props.count))
+                    }
+                    this.setState({ movieCasts: casts  });
+                })
+            }
+    } 
+    
 
     render() {
         return (
@@ -42,7 +55,10 @@ class MovieCasts extends Component {
                                     }
                                 </div>
                                 <div class="cast-card--title">
-                                    <p>{cast.name} as {cast.character}</p>
+                                    <p><b>{cast.name}</b></p>
+                                    {cast.character &&
+                                        <p>as {cast.character}</p>
+                                    }
                                 </div>
                             </Link>
                         </li>
