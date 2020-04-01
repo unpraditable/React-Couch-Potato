@@ -24,6 +24,8 @@ class ActorInfo extends Component {
     }
 
     render() {
+
+        //convert the birthday date into the locale string
         let birthdayDate = (new Date(this.state.actorInfos.birthday)).toLocaleDateString();
 
         return (

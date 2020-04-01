@@ -36,6 +36,8 @@ class MovieInfo extends Component {
     }
 
     render() {
+        //convert the birthday date into the locale string
+        let releaseDate = (new Date(this.state.movieInfos.release_date)).toLocaleDateString();
         return (
         <div className="movie-info">
             <div className="container">
@@ -46,19 +48,39 @@ class MovieInfo extends Component {
                  {/* render the YouTube video */}
 
                 <section className="row section">
-                    <div className="col-sm-3">
-                    <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid" />
+                        {/* Render the poster which hidden itself at mobile device when it has video for aesthetic purpose */}
+                        {this.state.movieVideoKey &&
+                        <div className="col-sm-3">
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" />
+                        </div>
+                        }
 
-                    </div>
+                        {/* Render the poster for all devices it does not have a video for aesthetic purpose */}
+                        {!this.state.movieVideoKey &&
+                        <div className="col-sm-3">
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.backdrop_path}`} className="img-fluid mb-2 d-block d-sm-none backdrop" alt={this.state.movieInfos.name}/>
+                            <img src={`https://image.tmdb.org/t/p/w300${this.state.movieInfos.poster_path}`} className="img-fluid d-none d-sm-block" />
+                        </div>
+
+                        }
                     
                     <div className="col-sm-9">
-                        <h1 className="movie-info--title">{this.state.movieInfos.original_title}</h1>
+                        
+                        <div className="flex">
+                            <h1 className="movie-info--title">{this.state.movieInfos.original_title}</h1>
+                            <p className="flex rating">
+                                <span className="icon">
+                                    <img src="/icons/star.svg" />
+                                </span> {this.state.movieInfos.vote_average}
+                            </p>
+                        </div>
                         <div className="flex my-2">
+                            
                             <div className="runtime">
-                                <p><span className="icon"><img src="/icons/calendar.svg" /></span>{this.state.movieInfos.runtime} minutes</p>
+                                <p className="flex"><span className="icon"><img src="/icons/calendar.svg" /></span>{this.state.movieInfos.runtime} minutes</p>
                             </div>
                             <div className="release_date">
-                                <p><span className="icon"><img src="/icons/clock.svg" /></span>{this.state.movieInfos.release_date}</p>
+                                <p className="flex"><span className="icon"><img src="/icons/clock.svg" /></span>{releaseDate}</p>
                             </div>
                         </div>
                         <h2>Overview</h2>
