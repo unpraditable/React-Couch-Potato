@@ -104,7 +104,7 @@ header {
 }
 
 .carousel-img-container{
-  height: 400px;
+  height: 50vh;
   background-color: rgba(0,0,0,0.5);
   position: relative;
   .overlay{
@@ -116,6 +116,13 @@ header {
     display: block;
     color: #FFF;
     background: rgba(0, 0, 0, .4);
+  }
+  img{
+    @media only screen and (max-width: 768px) {
+      height: 100%;
+      object-fit: cover;
+    }
+    
   }
 }
 
