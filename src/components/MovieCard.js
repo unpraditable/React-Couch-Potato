@@ -76,9 +76,21 @@ class MovieCard extends Component {
                 });
             })
         }
+
+        
     }
     
     render() {
+
+        let movieList = [];
+
+        //if this component has count props, execute this code to limit the number of movies that will be showed
+        if(this.props.count) {
+            movieList = this.state.movies.slice(0, parseInt(this.props.count))
+        } else {
+            movieList = this.state.movies
+
+        }
 
         //this is an algorithm to append the pagination
         var active = parseInt(this.state.activePage); //active is the active page of the pagination
@@ -112,11 +124,11 @@ class MovieCard extends Component {
         }
 
         return (
-            <div class="row">
+            <div className="row">
 
                 {/* The Movies sub component */}
                 <ul className="movie-card-container list-unstyled col-12">
-                    {this.state.movies.map(movie => 
+                    {movieList.map(movie => 
                         <li className="movie-card">
                             <Link to={ `/movies/${movie.id}` } title={movie.title}>
                                 <div className="image-container">
