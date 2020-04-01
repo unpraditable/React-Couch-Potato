@@ -1,7 +1,5 @@
 //This component is to Render Search Box. Main Purpose is to search movie
 
-//this component is to render the header navigation of this application. Contains Search Box, Link to Popular and Top Rated Movies, and Responsive Hamburger Button which is generated with React Bootstrap
-
 import React, {Component} from 'react'; 
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
@@ -22,7 +20,7 @@ class SearchBox extends Component {
                     <FormControl
                     placeholder="Search Movies..."
                     aria-label="Search Movies..."
-                    aria-describedby="basic-addon2" id="searchForm"
+                    aria-describedby="basic-addon2" id="searchForm" required
                     />
                     <InputGroup.Append>
                     <Button type="submit" variant="outline-secondary">Button</Button>
