@@ -34,8 +34,13 @@ class MovieCasts extends Component {
                         <li className="cast-card">
                             <Link to={ `/casts/${cast.id}` } title={cast.name}>
                                 <div className="image-container">
-                                    <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt={`${cast.name} Picture`} />
-
+                                    {/* Render the image from API if there is a profile_path */}
+                                    {cast.profile_path &&
+                                        <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt={`${cast.name} Picture`} />
+                                    }
+                                    {!cast.profile_path &&
+                                        <img className="backstage-img" src="/icons/backstage.svg" alt={`${cast.name} Picture`} />
+                                    }
                                 </div>
                                 <div class="cast-card--title">
                                     <p>{cast.name} as {cast.character}</p>

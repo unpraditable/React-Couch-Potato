@@ -96,7 +96,7 @@ class MovieCard extends Component {
 
                 {/* The pagination component, will be rendered if this component will be rendered to the browse page */}
                 {this.props.isBrowsePage &&
-                    <MoviePagination activePage={this.state.activePage} searchTitle={this.state.searchTitle} totalPages={this.state.totalPages}></MoviePagination>
+                    <MoviePagination className="col-12" activePage={this.state.activePage} searchTitle={this.state.searchTitle} totalPages={this.state.totalPages}></MoviePagination>
                 }
 
                 {/* The Movies sub component */}
@@ -105,7 +105,13 @@ class MovieCard extends Component {
                         <li className="movie-card">
                             <Link to={ `/movies/${movie.id}` } title={movie.title}>
                                 <div className="image-container">
-                                    <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
+                                    {/* Render the image from API if there is a poster_path */}
+                                    {movie.poster_path &&
+                                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={`${movie.title} Poster`} />
+                                    }
+                                    {!movie.poster_path &&
+                                        <img className="popcorn-img" src="/icons/popcorn.svg" alt={`${movie.title} Poster`} />
+                                    }
                                 </div>
                                 <div className="movie-card--title">
                                     <p className="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
