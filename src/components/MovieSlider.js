@@ -61,9 +61,8 @@ class MovieSlider extends Component {
                                 
                             </Link>
                         </Carousel.Item>
-                        )
+                    )
                 }
-                
     
             </Carousel>
         )
