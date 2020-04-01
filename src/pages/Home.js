@@ -7,12 +7,14 @@ import MovieSlider from '../components/MovieSlider';
 class Home extends Component {
     render() {
         return (
-        <div className="container content no-pad">
-            <h1 className="home-title">CouchPotato - Browse for Your Favourite Movies Here!</h1>
+        <div className ="home-container">
             <MovieSlider type="popular" count="5"/>
-            <h2>Top Movies</h2>
-            <MovieCard type="top_rated" count="10"/>
+            <div className="container content no-pad">
+                <h1 className="home-title">CouchPotato - Browse for Your Favourite Movies Here!</h1>
+                <MovieCard type="top_rated" count="10"/>
+            </div>
         </div>
+        
 
         )
     }

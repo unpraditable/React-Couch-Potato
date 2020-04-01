@@ -52,10 +52,13 @@ class MovieSlider extends Component {
                                     /> 
                                     <div class="overlay"></div>  
                                 </div>
-                                <Carousel.Caption>
-                                    <h3>{movie.title}</h3>
-                                    <p>{movie.overview}</p>
-                                </Carousel.Caption>
+                                <div className="container relative">
+                                    <Carousel.Caption>
+                                        <h3>{movie.title}</h3>
+                                        <p>{movie.overview}</p>
+                                    </Carousel.Caption>
+                                </div>
+                                
                             </Link>
                         </Carousel.Item>
                         )

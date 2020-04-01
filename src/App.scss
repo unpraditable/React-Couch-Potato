@@ -20,6 +20,8 @@ code {
 h1{
   margin: 30px 0;
   text-align: center;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 2em;
 
   &.home-title{
     text-align: center;
@@ -84,6 +86,10 @@ header {
   }
 }
 
+.relative{
+  position: relative;
+}
+
 .flex {
   display: flex;
   align-items: center;
@@ -115,7 +121,7 @@ header {
 
 .carousel-caption{
   text-align: left;
-  left: 10%;
+  left: 0;
   p {
     margin-bottom: 5px;
     line-height: 20px;
