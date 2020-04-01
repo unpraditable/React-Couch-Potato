@@ -2,6 +2,8 @@
 
 import React, {Component} from 'react'; 
 import MovieCard from '../components/MovieCard';
+import {Helmet} from "react-helmet";
+
 class ActorDetail extends Component {
     
     render() {
@@ -18,6 +20,8 @@ class ActorDetail extends Component {
             pageTitle = "Popular"
         }
 
+        
+
         //variables to parse query string from URL into a proper object
         const queryString = require('query-string');
         const parsedQueryString = queryString.parse(window.location.search);
@@ -27,6 +31,20 @@ class ActorDetail extends Component {
 
         return (
             <div className="container">
+                {this.props.type !== "search" &&
+                    <Helmet>
+                        <meta charSet="utf-8" />
+                        <title>CouchPotato - {pageTitle} Movies</title>
+                    </Helmet>
+                }
+
+                {this.props.type === "search" &&
+                    <Helmet>
+                        <meta charSet="utf-8" />
+                        <title>CouchPotato - Search Results for "{searchTitle}"</title>
+                    </Helmet>
+                }
+                
                 {this.props.type !== "search" &&
                     <h1>{pageTitle} Movies</h1>
                 }

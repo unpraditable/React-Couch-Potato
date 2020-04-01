@@ -16,7 +16,6 @@ class MovieCasts extends Component {
     const movie_id = this.props.movie_id; //the type whether this is a top_rated movies or popular movies
     const api_key= "f4405389d2c4c04e87e2a7b8edff703b"
 
-    //get the movie via AJAX with axios
     //get the movie casts via AJAX with axios
     axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${api_key}
     `)

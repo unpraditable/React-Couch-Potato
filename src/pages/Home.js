@@ -4,10 +4,16 @@ import React, {Component} from 'react';
 import MovieCard from '../components/MovieCard';
 
 import MovieSlider from '../components/MovieSlider';
+import {Helmet} from "react-helmet";
+
 class Home extends Component {
     render() {
         return (
         <div className ="home-container">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>CouchPotato - Browse for Your Favourite Movies Here!</title>
+            </Helmet>
             <MovieSlider type="popular" count="5"/>
             <div className="container content no-pad">
                 <h1 className="home-title">CouchPotato - Browse for Your Favourite Movies Here!</h1>
