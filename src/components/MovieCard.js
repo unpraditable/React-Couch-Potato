@@ -103,7 +103,7 @@ class MovieCard extends Component {
                 <ul className="movie-card-container list-unstyled col-12">
                     {movieList.map(movie => 
                         <li className="movie-card">
-                            <Link to={ `/movies/${movie.id}` } title={movie.title}>
+                            <a href={ `/movies/${movie.id}` } title={movie.title}>
                                 <div className="image-container">
                                     {/* Render the image from API if there is a poster_path */}
                                     {movie.poster_path &&
@@ -117,7 +117,7 @@ class MovieCard extends Component {
                                     <p className="flex rating"><img src="/icons/star.svg" /> {movie.vote_average}</p>
                                     <p>{movie.title}</p>
                                 </div>
-                            </Link>
+                            </a>
                         </li>
                     )}
                 </ul>

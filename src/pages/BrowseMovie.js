@@ -20,8 +20,6 @@ class ActorDetail extends Component {
             pageTitle = "Popular"
         }
 
-        
-
         //variables to parse query string from URL into a proper object
         const queryString = require('query-string');
         const parsedQueryString = queryString.parse(window.location.search);

@@ -43,7 +43,7 @@ class MovieSlider extends Component {
                 {
                     this.state.movies.slice(0, parseInt(this.props.count)).map(movie=>
                         <Carousel.Item>
-                            <Link to={ `/movies/${movie.id}`}>
+                            <a href={ `/movies/${movie.id}`}>
                                 <div className="carousel-img-container">
                                     <img
                                     className="d-block w-100"
@@ -59,7 +59,7 @@ class MovieSlider extends Component {
                                     </Carousel.Caption>
                                 </div>
                                 
-                            </Link>
+                            </a>
                         </Carousel.Item>
                     )
                 }
