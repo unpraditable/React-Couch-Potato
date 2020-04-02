@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/React-Couch-Potato/precache-manifest.2a6b6a70f167a666458f03a4e665c9f3.js"
+  "/React-Couch-Potato/precache-manifest.9b6076bd5d04eb69df18a9e5df36e8c9.js"
 );
 
 self.addEventListener('message', (event) => {
